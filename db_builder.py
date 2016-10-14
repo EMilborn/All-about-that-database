@@ -14,7 +14,7 @@ c = db.cursor()    #facilitate db ops
 
 q = "CREATE TABLE peeps (name TEXT, id INTEGER)"
 
-#c.execute(q)    #run SQL query
+c.execute(q)    #run SQL query
 
 fObj = open("peeps.csv") 
 d=csv.DictReader(fObj)
