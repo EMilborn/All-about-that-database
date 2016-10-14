@@ -12,15 +12,15 @@ c = db.cursor()    #facilitate db ops
 #...perhaps by beginning with these examples...
 
 
-q = "CREATE TABLE students (name TEXT, id INTEGER)"
+q = "CREATE TABLE peeps (name TEXT, id INTEGER)"
 
-c.execute(q)    #run SQL query
+#c.execute(q)    #run SQL query
 
 fObj = open("peeps.csv") 
 d=csv.DictReader(fObj)
 
 for k in d:
-	c.execute("INSERT INTO students VALUES(" + d['name'] +"," + d['id']+ ')')
+	c.execute("INSERT INTO peeps VALUES('" + k['name'] + "', " + k['id']+ ')')
 	
 
 '''
