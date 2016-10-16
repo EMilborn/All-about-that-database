@@ -3,7 +3,6 @@ import csv       #facilitates CSV I/O
 
 
 f="discobandit.db"
-
 db = sqlite3.connect(f) #open if f exists, otherwise create
 c = db.cursor()    #facilitate db ops
 
@@ -21,14 +20,17 @@ d=csv.DictReader(fObj)
 
 for k in d:
 	c.execute("INSERT INTO peeps VALUES('" + k['name'] + "', " + k['id']+ ')')
-	
 
-'''
 
 q = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)"
 
 c.execute(q)
-'''
+
+fObj = open("courses.csv") 
+d=csv.DictReader(fObj)
+
+for k in d:
+	c.execute("INSERT INTO courses VALUES('" + k['code'] + "', " + k['mark']+ ',' + k['id'] + ')')
 
 #==========================================================
 db.commit() #save changes
