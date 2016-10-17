@@ -10,6 +10,9 @@ c = db.cursor()    #facilitate db ops
 #INSERT YOUR POPULATE CODE IN THIS ZONE
 #...perhaps by beginning with these examples...
 
+q =  "DROP TABLE IF EXISTS peeps"
+
+c.execute(q)
 
 q = "CREATE TABLE peeps (name TEXT, id INTEGER)"
 
@@ -22,6 +25,10 @@ for k in d:
 	c.execute("INSERT INTO peeps VALUES('" + k['name'] + "', " + k['id']+ ')')
 
 
+q =  "DROP TABLE IF EXISTS courses"
+
+c.execute(q)
+    
 q = "CREATE TABLE courses (code TEXT, id INTEGER, mark INTEGER)"
 
 c.execute(q)
